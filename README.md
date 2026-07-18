@@ -1,10 +1,19 @@
 # schur-complement-lean
 
+[![thread](https://img.shields.io/badge/%F0%9F%A7%B5-how%20it%20works-1DA1F2)](https://x.com/thevelvetmonke)
 [![Lean 4](https://img.shields.io/badge/Lean-4.28.0-blue)](https://lean-lang.org/)
 [![Mathlib](https://img.shields.io/badge/Mathlib-v4.28.0-purple)](https://github.com/leanprover-community/mathlib4)
 [![Proofs](https://img.shields.io/badge/proofs-0%20sorry-brightgreen)](SchurComplement)
 
 Standalone Lean 4 / Mathlib module for Schur-complement `nonsing_inv` (`⁻¹`) APIs.
+
+## What this is, and why it matters
+
+The headline theorem is `det_fromBlocks_eq_det_mul_det_schurComplement` in `SchurComplement/SchurComplement.lean`. For a block matrix with invertible upper-left block `A`, it identifies the determinant of the full matrix with `det A` times the determinant of the corresponding Schur complement.
+
+The development defines the Schur complement using the ordinary inverse notation `A⁻¹`, then bridges that definition to existing Mathlib block-matrix formulas expressed with the inverse-of-unit notation `⅟`. The determinant result follows through that API connection under finite-dimensional and commutative-ring assumptions.
+
+The scope is deliberately narrow. Invertibility of `A` is an explicit hypothesis, and the repository does not formalize singular-block variants, numerical conditioning, or singular-value estimates. It is a Lean 4 and Mathlib candidate contribution rather than a claim to a complete Schur complement library.
 
 ## Scope
 
